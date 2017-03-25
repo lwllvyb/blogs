@@ -1,6 +1,7 @@
 # blogs
 
 ## file format
+
 ```
 ---
 title: photo
