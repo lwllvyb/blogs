@@ -16,4 +16,7 @@ tags:
 ---
 ```
 
-
+## picture
+```
+![picture](http://onjwbz75c.bkt.clouddn.com/my_picture_name)
+```
