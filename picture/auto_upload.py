@@ -46,10 +46,10 @@ def get_change_files(path):
 
 if __name__ == "__main__":
     al = AutoUploadPic()
-    pictures = get_change_files("../picture")
-    print pictures
-    # for pic in pictures:
-    #     ret = al.upload_picture("hexo-picture", pic)
-    #     if ret is not None:
-    #         print ("上传成功：%s " % ret)
+    pictures = get_change_files("../picture/")
+
+    for pic in pictures:
+        ret = al.upload_picture("hexo-picture", pic)
+        if ret is not None:
+            print ("上传成功：%s " % ret)
 
