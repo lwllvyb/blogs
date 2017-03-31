@@ -60,11 +60,12 @@ def upload(path):
         file_name = os.path.basename(abs_path)
         files.append(file_name)
     elif os.path.isdir(abs_path):
-        os.chdir(os.path.dirname(abs_path))
+        os.chdir(abs_path)
         for file_path in os.listdir(abs_path):
             file_name = os.path.basename(file_path)
             files.append(file_name)
     # upload pictures
+
     for file in files:
         ret = al.upload_picture("hexo-picture", file)
         if ret is not None:

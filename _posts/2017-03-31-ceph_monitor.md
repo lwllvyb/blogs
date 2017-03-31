@@ -10,7 +10,7 @@ tags: ceph monitor
 
 # 架构
 
-## Ceph Monitor Architecture
+![Ceph Monitor Architecture](http://onjwbz75c.bkt.clouddn.com/arti.png)
 
 上图所示是Ceph Monitor的结构图，自下而上有以下几个部分组成：
 
