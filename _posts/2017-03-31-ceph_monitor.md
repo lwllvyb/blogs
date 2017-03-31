@@ -20,7 +20,7 @@ tags: ceph monitor
 
 ## 初始化
 
- Ceph Monitor Initial
+![Ceph Monitor Initial](http://onjwbz75c.bkt.clouddn.com/init.png)
 
 可以看出，Ceph Monitor在启动节点端，主要做了三件事情：
 
@@ -36,7 +36,7 @@ tags: ceph monitor
 * 收到超过半数的ack并不需要全同步时，则进入选主过程。
 上述交互过程见下图：
 
-Ceph Monitor Boostrap
+![Ceph Monitor Boostrap](http://onjwbz75c.bkt.clouddn.com/boostrap.pn)
 
 #### 目的
 
@@ -61,7 +61,7 @@ Ceph Monitor Boostrap
 * 收到VICTORY消息的节点完成Election，进入Peon状态
 上述交互过程见下图：
 
-Ceph Monitor Election
+![Ceph Monitor Election](http://onjwbz75c.bkt.clouddn.com/victory.png)
 
 #### 目的
 
@@ -81,7 +81,7 @@ Ceph Monitor Election
 * leader向quorum中所有节点发送lease消息，使整个集群进入active状态。
 这个阶段的交互过程如下图：
 
- Ceph Monitor Collect
+ ![Ceph Monitor Collect](http://onjwbz75c.bkt.clouddn.com/recovery.png)
 
 #### 目的：
 
@@ -99,7 +99,7 @@ Ceph Monitor Election
 * leader通过lease消息将整个集群带入到active状态。
 交互过程如下：
 
-Ceph Monitor Write
+![Ceph Monitor Write](http://onjwbz75c.bkt.clouddn.com/read_write.png)
 
 #### 目的：
 
@@ -114,7 +114,7 @@ Ceph Monitor Write
 
 ### Monitor状态转换
 
-Ceph Monitor Status
+![Ceph Monitor Status](http://onjwbz75c.bkt.clouddn.com/monitor_status.png)
 
 * STATE_PROBING：boostrap过程中节点间相互探测，发现数据差距；
 * STATE_SYNCHRONIZING：当数据差距较大无法通过后续机制补齐时，进行全同步；
@@ -124,7 +124,7 @@ Ceph Monitor Status
 
 ### Paxos状态转换
 
-Ceph Monitor Paxos Status
+![Ceph Monitor Paxos Status](http://onjwbz75c.bkt.clouddn.com/paxos_status.png)
 
 * STATE_RECOVERING：对应上述RECOVERING过程；
 * STATE_ACTIVE：leader可以读写或peon拥有lease；
