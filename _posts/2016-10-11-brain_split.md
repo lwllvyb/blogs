@@ -12,6 +12,7 @@ tags: brain distribute
 
 1. **待读** [ZooKeeper internal behavior on split brain scenario](http://stackoverflow.com/questions/21380664/zookeeper-internal-behavior-on-split-brain-scenario)
 
+1. **待读** [一种集群脑裂后仲裁处理方法、仲裁存储装置以及系统](https://www.google.com/patents/WO2016107173A1?cl=zh-CN)
 
 # brain split
 
