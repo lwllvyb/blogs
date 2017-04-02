@@ -4,7 +4,7 @@ date: 2017-04-02 10:35:00
 tags: brain distribute
 ---
 
-## 参考原文：
+ 参考原文：
 
 1. [Split-brain (computing)](https://www.wikiwand.com/en/Split-brain_(computing))
 
@@ -50,7 +50,7 @@ the split-brain syndrome may occur when all of the private links go down simulta
 
 
 
-# zookeeper 处理 brain split
+## zookeeper 处理 brain split
 
 Zookeeper needs at least quorum to operate. Any partition that is smaller
 than quorum will not be able to make any state changes.
