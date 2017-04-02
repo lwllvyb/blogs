@@ -10,6 +10,9 @@ tags: brain distribute
 
 1. **待读** [Split-Brain Consensus](http://www.scs.stanford.edu/14au-cs244b/labs/projects/rygaard.pdf)
 
+1. **待读** [ZooKeeper internal behavior on split brain scenario](http://stackoverflow.com/questions/21380664/zookeeper-internal-behavior-on-split-brain-scenario)
+
+
 # brain split
 
 ## 概念
@@ -22,6 +25,8 @@ the split-brain syndrome may occur when all of the private links go down simulta
 
 ## 处理方法
 
+### wiki 提供的方法
+
 * 乐观方法
 
 1. 当出现 split-brain 场景时，被隔离的所有节点都正常对外提供服务，这样就可以提供更高的可用性，但是会牺牲掉一些正确性。
@@ -33,3 +38,18 @@ the split-brain syndrome may occur when all of the private links go down simulta
 悲观的方法是以牺牲可用性来保证一致性的。当出现 split-brain 场景时，限制被隔离网络访问来保证一致性。
 
 典型的方案："quorum-consensus", 被隔离的网络只有获取到多数人的投票，才可以提供正常的服务；而获取不到多数人投票的子网络会被自动隔离。
+
+### 常见的方法
+
+1. Quorums
+
+1. 採用Redundant communications。冗余通信的方式，集群中採用多种通信方式，防止一种通信方式失效导致集群中的节点无法通信。
+
+1. Fencing, 共享资源的方式，比方能看到共享资源就表示在集群中，可以获得共享资源的锁的就是Leader。看不到共享资源的，就不在集群中
+
+
+
+# zookeeper 处理 brain split
+
+Zookeeper needs at least quorum to operate. Any partition that is smaller
+than quorum will not be able to make any state changes.
