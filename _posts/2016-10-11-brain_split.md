@@ -3,17 +3,6 @@ title: brain split
 date: 2017-04-02 10:35:00
 tags: brain distribute
 ---
-
- 参考原文：
-
-1. [Split-brain (computing)](https://www.wikiwand.com/en/Split-brain_(computing))
-
-1. **待读** [Split-Brain Consensus](http://www.scs.stanford.edu/14au-cs244b/labs/projects/rygaard.pdf)
-
-1. **待读** [ZooKeeper internal behavior on split brain scenario](http://stackoverflow.com/questions/21380664/zookeeper-internal-behavior-on-split-brain-scenario)
-
-1. **待读** [一种集群脑裂后仲裁处理方法、仲裁存储装置以及系统](https://www.google.com/patents/WO2016107173A1?cl=zh-CN)
-
 # brain split
 
 ## 概念
@@ -48,9 +37,17 @@ the split-brain syndrome may occur when all of the private links go down simulta
 
 1. Fencing, 共享资源的方式，比方能看到共享资源就表示在集群中，可以获得共享资源的锁的就是Leader。看不到共享资源的，就不在集群中
 
-
-
 ## zookeeper 处理 brain split
 
 Zookeeper needs at least quorum to operate. Any partition that is smaller
 than quorum will not be able to make any state changes.
+
+## 参考原文：
+
+1. [Split-brain (computing)](https://www.wikiwand.com/en/Split-brain_(computing))
+
+1. **待读** [Split-Brain Consensus](http://www.scs.stanford.edu/14au-cs244b/labs/projects/rygaard.pdf)
+
+1. **待读** [ZooKeeper internal behavior on split brain scenario](http://stackoverflow.com/questions/21380664/zookeeper-internal-behavior-on-split-brain-scenario)
+
+1. **待读** [一种集群脑裂后仲裁处理方法、仲裁存储装置以及系统](https://www.google.com/patents/WO2016107173A1?cl=zh-CN)
