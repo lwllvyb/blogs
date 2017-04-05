@@ -39,8 +39,7 @@ the split-brain syndrome may occur when all of the private links go down simulta
 
 ## zookeeper 处理 brain split
 
-Zookeeper needs at least quorum to operate. Any partition that is smaller
-than quorum will not be able to make any state changes.
+避免这种情况其实也很简单，在slaver切换的时候不在检查到老的master出现问题后马上切换，而是在休眠一段足够的时间，确保老的master已经获知变更并且做了相关的shutdown清理工作了然后再注册成为master就能避免这类问题了，这个休眠时间一般定义为与zookeeper定义的超时时间就够了，但是这段时间内系统可能是不可用的，但是相对于数据不一致的后果我想还是值得的。
 
 ## 参考原文：
 
@@ -51,3 +50,5 @@ than quorum will not be able to make any state changes.
 1. **待读** [ZooKeeper internal behavior on split brain scenario](http://stackoverflow.com/questions/21380664/zookeeper-internal-behavior-on-split-brain-scenario)
 
 1. **待读** [一种集群脑裂后仲裁处理方法、仲裁存储装置以及系统](https://www.google.com/patents/WO2016107173A1?cl=zh-CN)
+
+1. [Zookeeper和分布式环境中的假死脑裂问题](http://backend.blog.163.com/blog/static/20229412620128911939110/)
