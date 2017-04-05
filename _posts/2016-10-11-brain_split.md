@@ -39,7 +39,15 @@ the split-brain syndrome may occur when all of the private links go down simulta
 
 ## zookeeper 处理 brain split
 
+### 针对 HA 场景，主备切换
+
 避免这种情况其实也很简单，在slaver切换的时候不在检查到老的master出现问题后马上切换，而是在休眠一段足够的时间，确保老的master已经获知变更并且做了相关的shutdown清理工作了然后再注册成为master就能避免这类问题了，这个休眠时间一般定义为与zookeeper定义的超时时间就够了，但是这段时间内系统可能是不可用的，但是相对于数据不一致的后果我想还是值得的。
+
+### 针对集群产生 leader
+
+Split-Brain问题说的是1个集群如果发生了网络故障，很可能出现1个集群分成了两部分，而这两个部分都不知道对方是否存活，不知道到底是网络问题还是直接机器down了，所以这两部分都要选举1个Leader，而一旦两部分都选出了Leader, 并且网络又恢复了，那么就会出现两个Brain的情况，整个集群的行为不一致了。
+
+所以集群要防止出现Split-Brain的问题出现，Quoroms是一种方式，即只有集群中超过半数节点投票才能选举出Leader。
 
 ## 参考原文：
 
