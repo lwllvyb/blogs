@@ -55,6 +55,12 @@ int32_t JumpConsistentHash(uint64_t key, int32_t num_buckets) {
 }
 ```
 
+## 后续考虑
+
+1. 数据分布
+
+如果不考虑多副本要求，对于块存储，可以使用该算法按照fid（全局唯一）来进行分配。
+
 ## 参考文章
 1. [【翻译/介绍】jump Consistent hash:零内存消耗，均匀，快速，简洁，来自Google的一致性哈希算法](https://blog.helong.info//blog/2015/03/13/jump_consistent_hash/)
 1. [一个速度快内存占用小的一致性哈希算法](http://colobu.com/2016/03/22/jump-consistent-hash/)
