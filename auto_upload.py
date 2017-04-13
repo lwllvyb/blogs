@@ -46,29 +46,29 @@ class AutoUploadPic(object):
         # change to picture's parent_path
         os.chdir(self.parent_path)
 
+        print("files:%s" % files)
+
         self.current_bucket = self.cow.get_bucket(bucket_name)
         for file in files:
             try:
                 ret = self.current_bucket.put(file, keep_name=keep_name)
                 print("上传成功: %s" % ret)
 
+                self.backup_file(file)
             except CowException as e:
                 print ("上传失败: file[%s] url[%s] status code[%s] content[%s]" % (
                     file, e.url, e.status_code, e.content))
                 continue
-        self.backup_file()
 
     def backup_file(self, file):
-        self.back_path = os.path.join(self.parent_path, ".bak")
-        if os.path.isdir(self.back_path) is False:
-            os.mkdir(self.back_path)
-
-        if os.path.isfile(self.abs_path):
-            shutil.move(self.abs_path, self.back_path)
-        elif os.path.isdir(self.abs_path):
-            for file in os.listdir(self.abs_path):
-                shutil.move(file, self.back_path)
-        print self.abs_path
+        self.bak_path = os.path.join(self.parent_path, ".bak")
+        if os.path.isdir(self.bak_path) is False:
+            os.mkdir(self.bak_path)
+        abs_path = os.path.abspath(file)
+        if os.path.isfile(abs_path):
+            shutil.move(abs_path, self.bak_path)
+        else:
+            print("file[%s] is not file" % abs_path)
 
 
 if __name__ == "__main__":
