@@ -39,8 +39,9 @@ class AutoUploadPic(object):
         elif os.path.isdir(self.abs_path):
             self.parent_path = self.abs_path
             for file_path in os.listdir(self.abs_path):
-                if os.path.isfile(file_path):
+                if os.path.isfile(os.path.join(self.abs_path,file_path)):
                     file_name = os.path.basename(file_path)
+                    print file_name
                     files.append(file_name)
 
         # change to picture's parent_path
