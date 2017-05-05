@@ -7,7 +7,7 @@ tags: linux io
 
 ![linux_io_1.gif](http://onjwbz75c.bkt.clouddn.com/linux_io_1.gif)
 ![linux_io_2.jpg](http://onjwbz75c.bkt.clouddn.com/linux_io_2.jpg)
-
+![linux_io_3.png](http://onjwbz75c.bkt.clouddn.com/linux_io_3.png)
 
 ## application process
 
