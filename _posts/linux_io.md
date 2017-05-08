@@ -35,17 +35,19 @@ SCSI低层：底层负责识别物理设备，将其抽象提供给高层，同�
 
 ## read io
 
-read -> sys_read
+### （用户态）read
 
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
+---(用户态切换到内核态)---->
+
+### （内核态）
+
+1. sys_read
+2. file system(ext2)
+    * fd 到 file 指针
+    * 是否在page cache
+
+
+
 
 ## write io
 
