@@ -9,3 +9,6 @@ tags: tcp 三次握手 accpet
 ## 参考
 
 http://blog.chinaunix.net/uid-26971437-id-3949232.html
+
+
+http://blog.sae.sina.com.cn/archives/2254
